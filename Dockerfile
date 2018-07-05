@@ -32,6 +32,11 @@ RUN apt-get update \
     && useradd -u 911 -U -d /config -s /bin/false abc \
     && usermod -G users abc
 
+# Add done script dependancies
+RUN apt add python3 \
+    pip3 install transmissionrpc \
+    pip3 install pymysql
+
 ADD openvpn/ /etc/openvpn/
 ADD transmission/ /etc/transmission/
 ADD tinyproxy /opt/tinyproxy/
