@@ -33,7 +33,8 @@ RUN apt-get update \
     && usermod -G users abc
 
 # Add done script dependancies
-RUN apt add python3 \
+RUN apt install python3 \
+    apt install python3-pip \
     pip3 install transmissionrpc \
     pip3 install pymysql
 
